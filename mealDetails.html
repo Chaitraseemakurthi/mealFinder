@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+<header>
+         <h1>MEAL FINDER</h1>
+    <i class="fa-solid fa-bars" id="menu"></i>
+    
+    <div id="categoryMenu">
+       <i class="fa-regular fa-circle-xmark" id="close" style="color: orangered;"></i>
+        <div id="categoryList"></div>
+    </div>
+</header>
+    <section class="bgd-img">
+        <img src="../javascript/img.jpg" width="100%" height="450px" alt="">
+        <div class="search">
+            <input type="text" placeholder="search recipes" id="searchInput">
+            <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i><br><br>
+            <h2>What are your favorite Cuisines?</h2><br>
+            <p>PERSONALIZE YOUR EXPERIENCE</p>
+        </div>
+        
+    </section>
+    <section id="searchMeal">
+        <h1>MEALS</h1><br><br>
+        <div id="searchResults">
+
+        </div>
+    </section>
+   
+    <section class="page">
+        <h1>MEAL DETAILS</h1><br><br>
+        <div id="mealDetailsCard">
+       
+         
+    </div>
+    </section>
+    <script>
+          async function getMealDetails(){
+              let params = new URLSearchParams(window.location.search);
+              let mealId = params.get("id");
+              let response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${encodeURIComponent(mealId)}`)
+              let data = await response.json()
+            //   console.log(data.meals)
+               let ingredients = "";
+               let measures = "";
+
+              for (let i = 1; i <= 20; i++) {
+              let ingredient = data.meals[0][`strIngredient${i}`];
+                let measure = data.meals[0][`strMeasure${i}`];
+                   if (ingredient && ingredient.trim() !== "") {
+                        ingredients += `<p>${i}. ${ingredient}</p>`;
+                   }
+        if (measure && measure.trim() !== "") {
+            measures += `<p><i style="color:orangered" class="fa-solid fa-spoon"></i> ${measure}</p>`;
+        }
+}
+               let instructions = data.meals[0].strInstructions.split(/\r?\n+/);
+             let result = instructions .filter(item => item.trim() !== "")
+                                       .map((item) => {
+             return `<p><i style="color:orangered" class="fa-regular fa-square-check"></i> ${item}</p>`;
+    })
+          let details = `<div class="ingredients">
+                      <img src="${data.meals[0].strMealThumb}" width="450px" height="400px">
+                          <div>
+                            <h1 style="color:orangered;">${data.meals[0].strMeal}</h1>
+                            <hr style="border: 1px solid orangered;"><br>
+                          <p><strong>Category: </strong> <span style="color:grey;">${data.meals[0].strCategory.toUpperCase()}</span></p><br>
+                            <p><strong>Source: </strong><span style="color:grey;">${data.meals[0].strSource}</span></p><br>
+                            <h4>Tags: ${data.meals[0].strTags ? data.meals[0].strTags : ""}</h4><br>
+                            <div class="card">
+                              <h4>Ingredients</h4><br>
+                              <div class="ingredient">
+                                  ${ingredients}
+                              </div>   
+                            </div>
+                          </div>
+                    </div><br><br>
+                    <h4>Measure:</h4><br><br>
+                     <div id="measure">
+                        ${measures}
+                    </div><br><br>
+                    <h4>Instructions:</h4><br>
+                    <div class="instructions">${result.join("")}</div>`
+                           
+
+
+           
+
+           document.getElementById("mealDetailsCard").innerHTML = details   
+          }
+          
+          getMealDetails()
+
+    </script>
+    <script src="../javascript/common.js"></script>
+</body>
+</html>

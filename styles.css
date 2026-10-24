@@ -1,0 +1,280 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    
+}
+header {
+    display: flex;
+    background-color: orangered;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    position: relative;
+    /* color: white; */
+    /* font-weight: bold; */
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+}
+header h1{
+    color: white;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.bgd-img{
+    position: relative;
+}
+#searchBtn{
+    color: orangered;
+    background-color: white;
+}
+.search{
+    position: absolute;
+     top: 50%;
+     left: 50%; 
+     transform: translate(-50%, -50%); 
+    text-align: center;
+   
+}
+.search p,h2{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+.search input{
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    padding: 20px;
+}
+.search i{
+    border-radius: 50%;
+    background-color: orangered;
+    
+    padding: 10px;
+    border: 1px solid white;
+}
+/* #categoryMenu {
+    display: none;
+    background-color: lightgray;
+    padding: 20px;
+    width: 200px;
+}
+
+#categoryMenu.active {
+    display: block;
+} */
+#card{
+    height: 200px;
+    width: 250px;
+    position: relative;
+    /* border: 1px solid white; */
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+   
+}
+#categories{
+    background-color: whitesmoke;
+    padding: 40px 40px;
+    
+}
+#item{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    background-color: orangered;
+    color: white;
+    /* border: 1px solid black; */
+    padding: 5px;
+    border-radius: 5px;
+}
+#categoryCards{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
+}
+.cateName{
+    color: orangered;
+}
+#description{
+    border: 2px solid orangered;
+    padding: 20px;
+    margin: 20px;
+}
+.desc{
+    line-height: 1.5;
+}
+#mealCards{
+   display: grid;
+   grid-template-columns: auto auto auto auto;
+   gap: 20px;
+  
+}
+.mealCard{
+ height: 200px;
+ width: 250px;
+ padding: 10px;
+ border-radius: 10px;
+ background-color: white;
+}
+#meal{
+   padding: 40px;
+   /* background-color: whitesmoke; */
+}
+.ingredients{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    column-gap: 20px;
+    /* border: 1px solid white;
+    background-color: white;
+    padding: 60px; */
+
+}
+.page{
+    background-color: whitesmoke;
+    padding:20px 100px;
+}
+.ingredient{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    line-height: 2;
+}
+.card{
+    background-color: orangered;
+    padding: 30px;
+    color: white;
+    
+}
+#measure{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border: 1px solid white;
+    background-color: whitesmoke;
+    padding: 20px;
+    line-height: 2;
+}
+#mealDetailsCard{
+    border: 1px solid white;
+     background-color: white; 
+    padding: 60px;
+}
+.instructions{
+    line-height: 2;
+}
+#searchResults {
+    display: grid;
+    grid-template-columns:auto auto auto auto;
+    gap: 10px;
+   /* margin-bottom: 30px; */
+}
+
+.search-card {
+ height: 200px;
+ width: 250px;
+ padding: 10px;
+ border-radius: 10px;
+ background-color: white;
+}
+
+ #searchMeal{
+     display: none;
+     margin: 60px 30px;
+
+ }
+ 
+ 
+
+
+#menu {
+    cursor: pointer;
+    font-size: 25px;
+    color: white;
+}
+
+#categoryMenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 600px;
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+   
+   
+}
+
+#close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+#categoryList p {
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+}
+
+#categoryList p:hover {
+    background-color: #f2f2f2;
+}
+@media (max-width: 576px){
+ #categoryCards{
+    display: grid;
+    grid-template-columns: auto;
+    gap: 20px;
+    text-align: center;
+    justify-items: center;
+    
+}
+
+#categories h1{
+    text-align: center;
+}
+#searchInput{
+    width: 150px;
+}
+#searchResults{
+    display: grid;
+    grid-template-columns:auto;
+    gap: 10px;
+    justify-items: center;
+}
+#mealCards{
+   display: grid;
+   grid-template-columns: auto;
+   gap: 20px;
+   justify-items: center;
+  
+}
+.ingredients{
+    display: grid;
+    grid-template-columns: auto;
+    column-gap: 20px;
+}
+#measure{
+    display: grid;
+    grid-template-columns: auto;
+}
+.ingredients img{
+    width: 200px;
+    height: 150px;
+}
+.page{
+    padding: 20px 40px;
+}
+#mealDetailsCard{
+    padding: 20px;
+}
+.ingredient{
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+    line-height: 2;
+}
+
+}
