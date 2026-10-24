@@ -72,7 +72,7 @@
                             <h1 style="color:orangered;">${data.meals[0].strMeal}</h1>
                             <hr style="border: 1px solid orangered;"><br>
                           <p><strong>Category: </strong> <span style="color:grey;">${data.meals[0].strCategory.toUpperCase()}</span></p><br>
-                            <p><strong>Source: </strong><span style="color:grey;">${data.meals[0].strSource}</span></p><br>
+                            <p><strong>Source: </strong><span class="source-url" style="color:grey;">${data.meals[0].strSource}</span></p><br>
                             <h4>Tags: ${data.meals[0].strTags ? data.meals[0].strTags : ""}</h4><br>
                             <div class="card">
                               <h4>Ingredients</h4><br>
@@ -99,6 +99,6 @@
           getMealDetails()
 
     </script>
-    <script src="../javascript/common.js"></script>
+    <script src="common.js"></script>
 </body>
 </html>

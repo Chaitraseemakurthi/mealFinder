@@ -10,9 +10,9 @@ header {
     align-items: center;
     padding: 20px 40px;
     position: relative;
-    /* color: white; */
-    /* font-weight: bold; */
-    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
 }
 header h1{
     color: white;
@@ -236,7 +236,7 @@ header h1{
     text-align: center;
 }
 #searchInput{
-    width: 150px;
+    width: 120px;
 }
 #searchResults{
     display: grid;
@@ -268,13 +268,21 @@ header h1{
     padding: 20px 40px;
 }
 #mealDetailsCard{
-    padding: 20px;
+    padding: 25px;
 }
 .ingredient{
     display: grid;
     grid-template-columns: auto;
     gap: 10px;
     line-height: 2;
+}
+.card{
+   
+    width: 250px;
+}
+
+.source-url{
+     overflow-wrap: anywhere;
 }
 
 }
